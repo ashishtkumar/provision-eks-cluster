@@ -3,9 +3,9 @@ kind: Component
 metadata:
   name: ${{ values.name | dump }}
   annotations:
-    github.com/project-slug: ashishtkumar/aws-eks
-    # github.com/project-slug: ashishtkumar/${{ values.name }}
-    github.com/workflows: manage-eks-cluster.yml
+    # github.com/project-slug: ashishtkumar/aws-eks
+    github.com/project-slug: ashishtkumar/${{ values.name }}
+    # github.com/workflows: manage-eks-cluster.yml
     terraform.io/workspace: backstage-eks-aws
     terraform.io/organization: srepro
   description: ${{ values.name }} running on AWS EKS cluster managed by Terraform
@@ -13,3 +13,5 @@ spec:
   type: service
   owner: user:guest
   lifecycle: experimental
+  dependsOn:
+    - component:default/dev-eks-cluster
