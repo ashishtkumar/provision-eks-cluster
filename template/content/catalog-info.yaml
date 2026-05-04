@@ -1,7 +1,8 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: ${{ values.name | dump }}
+  name: ${{ values.name | dump 
+  namespace: default
   annotations:
     # github.com/project-slug: ashishtkumar/aws-eks
     github.com/project-slug: ashishtkumar/${{ values.name }}
@@ -14,4 +15,4 @@ spec:
   owner: user:guest
   lifecycle: experimental
   dependsOn:
-    - component:guests/dev-eks-cluster
+    - component:default/dev-eks-cluster
